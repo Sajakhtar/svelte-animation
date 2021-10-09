@@ -4,9 +4,11 @@
 
 ---
 
-# svelte app
+# Svelte Animation
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+Courtesy of [Animating Svelte Course](https://leveluptutorials.com/tutorials/animating-svelte/getting-started) by [Level Up Tutorials (Scott Tolinski)](https://leveluptutorials.com/home).
+
+This project uses the template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
 
 To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
 
