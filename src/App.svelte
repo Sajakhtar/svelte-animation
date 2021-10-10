@@ -1,5 +1,6 @@
 <script>
   import { fade, blur, slide, fly } from 'svelte/transition';
+  import { custom } from './custom';
 
   // Svelte built in animations
   // fade -> opacity 0 to 1
@@ -35,6 +36,12 @@
   <!-- in and out animations -->
   {#if isReady}
   <h2 in:fly={{ y: 200 }} out:fade >Fly in and fade out!</h2>
+  {/if}
+
+
+  <!-- custom animations using t= 0 to 1 in custom.js -->
+  {#if isReady}
+  <h2  transition:custom={{ delay: 2000}} >Custom transition</h2>
   {/if}
 
 
