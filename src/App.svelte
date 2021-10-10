@@ -29,8 +29,14 @@
   <h1 transition:fade={{ delay: 500, duration: 500}}>Fade!</h1>
   <h1 transition:blur={{ opacity: 1, amount: 200  }}>blur!</h1>
   <h1 transition:slide>slide! accordion</h1>
-  <h1 transition:fly={{ y: 300, x: -300 }}>Fly!</h1>
+  <h1 transition:fly={{ y: 100, x: -100 }}>Fly!</h1>
   {/if}
+
+  {#if isReady}
+  <h2 in:fly={{ y: 200 }} out:fade >Fly in and fade out!</h2>
+  {/if}
+
+
 
 </main>
 
