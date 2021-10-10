@@ -1,10 +1,25 @@
 <script>
+  import { fade } from 'svelte/transition';
+
+  // Svelte built in animations
+  // fade -> opacity 0 to 1
+  // blur -> opacity and blue
+  // fly -> x and why position and opacity
+  // slide -> height (like an acordion)
+  // scale -> start: scale, opacity
+  // draw -> draw SVG
+  // Can write custom animation functions
+
+
+  let isReady = false;
 	export let name;
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+  {#if isReady}
+    <h1 transition:fade>Hello {name}!</h1>
+  {/if}
+  <button on:click={() => isReady = !isReady}>Fade</button>
 </main>
 
 <style>
