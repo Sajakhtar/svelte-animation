@@ -32,6 +32,7 @@
   <h1 transition:fly={{ y: 100, x: -100 }}>Fly!</h1>
   {/if}
 
+  <!-- in and out animations -->
   {#if isReady}
   <h2 in:fly={{ y: 200 }} out:fade >Fly in and fade out!</h2>
   {/if}
