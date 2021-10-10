@@ -18,8 +18,10 @@
 <main>
   {#if isReady}
     <h1 transition:fade>Hello {name}!</h1>
-  {/if}
-  <button on:click={() => isReady = !isReady}>Fade</button>
+    {/if}
+    <button on:click={() => isReady = !isReady}>Fade</button>
+
+    <h1 transition:fade>Hello {name}!</h1>
 </main>
 
 <style>
