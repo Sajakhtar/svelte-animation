@@ -1,5 +1,5 @@
 <script>
-  import { fade } from 'svelte/transition';
+  import { fade, blur, slide, fly } from 'svelte/transition';
 
   // Svelte built in animations
   // fade -> opacity 0 to 1
@@ -16,18 +16,21 @@
 </script>
 
 <main>
-  <!-- mounting & unmounting (the DOM) transition animation-->
-  {#if isReady}
-  <h1 transition:fade>Hello {name}!</h1>
-  {/if}
+  <button on:click={() => isReady = !isReady}>Fade</button>
 
   <!-- initial load transtion animation (set in 'intro:true' in main.js) -->
-  <h1 transition:fade>Hello {name}!</h1>
+  <h1 transition:fade>Hello {name}! (on initial load)</h1>
 
   <!-- css transition animation -->
-  <h1 class:hidden={!isReady}>Hello {name}!</h1>
+  <h1 class:hidden={!isReady}>CSS transition!</h1>
 
-  <button on:click={() => isReady = !isReady}>Fade</button>
+  <!-- mounting & unmounting (the DOM) transition animation-->
+  {#if isReady}
+  <h1 transition:fade={{ delay: 500, duration: 500}}>Fade!</h1>
+  <h1 transition:blur={{ opacity: 1, amount: 200  }}>blur!</h1>
+  <h1 transition:slide>slide! accordion</h1>
+  <h1 transition:fly={{ y: 300, x: -300 }}>Fly!</h1>
+  {/if}
 
 </main>
 
