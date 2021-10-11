@@ -1,7 +1,10 @@
 <script>
   import { fade, blur, slide, fly } from 'svelte/transition';
   import { custom } from './custom';
+  import { alert } from './alert';
+
   import Nav from './Nav.svelte';
+  import Toast from './Toast.svelte';
 
   // Svelte built in animations
   // fade -> opacity 0 to 1
@@ -13,13 +16,21 @@
   // Can write custom animation functions
 
 
-	export let name;
+	// export let name;
   let isReady = false;
   let isNavOpen = false;
 
   function toggleNav() {
     isNavOpen = !isNavOpen;
   }
+
+  function toggleAlert() {
+    alert.set({
+      isActive: !$alert.isActive,
+      text: "alert from button click",
+    })
+  }
+
 </script>
 
 {#if isNavOpen}
@@ -28,6 +39,7 @@
 
 <main>
   <button on:click={toggleNav}>Menu</button>
+  <button on:click={toggleAlert}>Alert</button>
 
   <!-- <button on:click={() => isReady = !isReady}>Fade</button> -->
 
@@ -56,16 +68,17 @@
   <h2  transition:custom={{ delay: 2000}} >Custom transition</h2>
   {/if} -->
 
-
-
 </main>
+
+<Toast />
+
 
 <style>
 
-  .hidden {
+  /* .hidden {
     opacity: 0;
     transition: 0.3s ease opacity;
-  }
+  } */
 
 	main {
 		text-align: center;
@@ -74,12 +87,12 @@
 		margin: 0 auto;
 	}
 
-	h1 {
+	/* h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
-	}
+	} */
 
 	@media (min-width: 640px) {
 		main {
