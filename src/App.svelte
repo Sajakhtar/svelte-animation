@@ -1,6 +1,7 @@
 <script>
   import { fade, blur, slide, fly } from 'svelte/transition';
   import { custom } from './custom';
+  import Nav from './Nav.svelte';
 
   // Svelte built in animations
   // fade -> opacity 0 to 1
@@ -12,37 +13,48 @@
   // Can write custom animation functions
 
 
-  let isReady = false;
 	export let name;
+  let isReady = false;
+  let isNavOpen = false;
+
+  function toggleNav() {
+    isNavOpen = !isNavOpen;
+  }
 </script>
 
+{#if isNavOpen}
+  <Nav {toggleNav} />
+{/if}
+
 <main>
-  <button on:click={() => isReady = !isReady}>Fade</button>
+  <button on:click={toggleNav}>Menu</button>
+
+  <!-- <button on:click={() => isReady = !isReady}>Fade</button> -->
 
   <!-- initial load transtion animation (set in 'intro:true' in main.js) -->
-  <h1 transition:fade>Hello {name}! (on initial load)</h1>
+  <!-- <h1 transition:fade>Hello {name}! (on initial load)</h1> -->
 
   <!-- css transition animation -->
-  <h1 class:hidden={!isReady}>CSS transition!</h1>
+  <!-- <h1 class:hidden={!isReady}>CSS transition!</h1> -->
 
   <!-- mounting & unmounting (the DOM) transition animation-->
-  {#if isReady}
+  <!-- {#if isReady}
   <h1 transition:fade={{ delay: 500, duration: 500}}>Fade!</h1>
   <h1 transition:blur={{ opacity: 1, amount: 200  }}>blur!</h1>
   <h1 transition:slide>slide! accordion</h1>
   <h1 transition:fly={{ y: 100, x: -100 }}>Fly!</h1>
-  {/if}
+  {/if} -->
 
   <!-- in and out animations -->
-  {#if isReady}
+  <!-- {#if isReady}
   <h2 in:fly={{ y: 200 }} out:fade >Fly in and fade out!</h2>
-  {/if}
+  {/if} -->
 
 
   <!-- custom animations using t= 0 to 1 in custom.js -->
-  {#if isReady}
+  <!-- {#if isReady}
   <h2  transition:custom={{ delay: 2000}} >Custom transition</h2>
-  {/if}
+  {/if} -->
 
 
 
