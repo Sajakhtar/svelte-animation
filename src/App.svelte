@@ -6,6 +6,7 @@
   import Nav from './Nav.svelte';
   import Toast from './Toast.svelte';
   import Modal from './Modal.svelte';
+  import Box from './Box.svelte';
 
 
   // Svelte built in animations
@@ -49,6 +50,8 @@
   <button on:click={toggleAlert}>Alert</button>
   <button on:click={toggleModal}>Modal</button>
 
+  <Box />
+
   <!-- <button on:click={() => isReady = !isReady}>Fade</button> -->
 
   <!-- initial load transtion animation (set in 'intro:true' in main.js) -->
@@ -86,6 +89,7 @@
     <button>Do something</button>
   </Modal>
 {/if}
+
 
 <style>
 
