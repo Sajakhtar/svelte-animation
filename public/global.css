@@ -310,13 +310,13 @@ button.small {
 }
 
 /* First item will never have margin top */
-.card,
+.card > *:nth-child(2),
 .drawer > *:first-child {
   margin-top: 0;
 }
 
 /* Last item will never have margin bottom */
-.card,
+.card > *:last-child,
 .drawer > *:last-child {
   margin-bottom: 0;
 }

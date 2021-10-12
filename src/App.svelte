@@ -5,6 +5,8 @@
 
   import Nav from './Nav.svelte';
   import Toast from './Toast.svelte';
+  import Modal from './Modal.svelte';
+
 
   // Svelte built in animations
   // fade -> opacity 0 to 1
@@ -72,6 +74,11 @@
 
 <Toast />
 
+
+<Modal>
+  <p>From the app</p>
+  <button>Do something</button>
+</Modal>
 
 <style>
 
