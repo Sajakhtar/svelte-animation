@@ -3,6 +3,7 @@
 </script>
 
 <div use:drag class="box"></div>
+<div use:drag class="box"></div>
 
 <style>
   .box {
