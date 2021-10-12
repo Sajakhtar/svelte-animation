@@ -27,6 +27,18 @@ export function drag(node, params) {
     window.addEventListener('mouseup', handleMouseUp);
   }
 
+  // Default direction
+  let directions = {
+    y: true,
+    x: true,
+  }
+
+  if(params?.direction === 'x') {
+    directions.y = false;
+  } else if(params?.direction === 'y') {
+    directions.x = false;
+  }
+
   function handleMouseMove(event) {
 
     // delta x = click position to current mouse position
@@ -38,11 +50,12 @@ export function drag(node, params) {
 
     coordinates.update(($coords) => {
       return {
-        x: $coords.x + dx,
-        y: $coords.y + dy,
+        x: directions.x ? $coords.x + dx : 0,
+        y: directions .y ? $coords.y + dy : 0,
       }
     });
   }
+
 
   function handleMouseUp(event) {
     // Reset values

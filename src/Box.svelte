@@ -2,8 +2,9 @@
   import { drag } from './drag';
 </script>
 
-<div use:drag class="box"></div>
-<div use:drag class="box"></div>
+<div use:drag={{ direction: 'y' }} class="box">y direction</div>
+<div use:drag={{ direction: 'x' }} class="box">x direction</div>
+<div use:drag class="box">x and y direction</div>
 
 <style>
   .box {
