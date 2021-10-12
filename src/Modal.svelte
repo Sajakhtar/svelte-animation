@@ -1,14 +1,14 @@
 <script>
-  import { scale } from 'svelte/transition';
+  import { scale, fly } from 'svelte/transition';
   export let toggleModal;
 </script>
 
 <div class="modal">
-  <div class="card">
+  <div class="card" transition:fly={{ y: 40 }}>
     <button on:click={toggleModal} class="drawer--close">X</button>
     <slot />
   </div>
-  <div on:click={toggleModal} class="background" />
+  <div on:click={toggleModal} class="background" transition:scale={{ start: 1.5, duration: 2000 }} />
 </div>
 
 
