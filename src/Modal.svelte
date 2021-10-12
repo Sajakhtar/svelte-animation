@@ -1,11 +1,14 @@
-
+<script>
+  import { scale } from 'svelte/transition';
+  export let toggleModal;
+</script>
 
 <div class="modal">
   <div class="card">
-    <button class="drawer--close">X</button>
+    <button on:click={toggleModal} class="drawer--close">X</button>
     <slot />
   </div>
-  <div class="background" />
+  <div on:click={toggleModal} class="background" />
 </div>
 
 

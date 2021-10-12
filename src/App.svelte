@@ -21,6 +21,7 @@
 	// export let name;
   let isReady = false;
   let isNavOpen = false;
+  let isModalOpen = false;
 
   function toggleNav() {
     isNavOpen = !isNavOpen;
@@ -33,6 +34,10 @@
     })
   }
 
+  function toggleModal() {
+    isModalOpen = !isModalOpen
+  }
+
 </script>
 
 {#if isNavOpen}
@@ -42,6 +47,7 @@
 <main>
   <button on:click={toggleNav}>Menu</button>
   <button on:click={toggleAlert}>Alert</button>
+  <button on:click={toggleModal}>Modal</button>
 
   <!-- <button on:click={() => isReady = !isReady}>Fade</button> -->
 
@@ -74,11 +80,12 @@
 
 <Toast />
 
-
-<Modal>
-  <p>From the app</p>
-  <button>Do something</button>
-</Modal>
+{#if isModalOpen}
+  <Modal {toggleModal}>
+    <p>From the app</p>
+    <button>Do something</button>
+  </Modal>
+{/if}
 
 <style>
 
