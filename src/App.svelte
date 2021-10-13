@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import { fade, blur, slide, fly } from 'svelte/transition';
   import { custom } from './custom';
   import { alert } from './alert';
@@ -23,6 +24,7 @@
   let isReady = false;
   let isNavOpen = false;
   let isModalOpen = false;
+  let isCardActive = false;
 
   function toggleNav() {
     isNavOpen = !isNavOpen;
@@ -38,6 +40,24 @@
   function toggleModal() {
     isModalOpen = !isModalOpen
   }
+
+  function onScroll() {
+    console.log(window.pageYOffset);
+    const scrollPosition = window.pageYOffset;
+
+    if(scrollPosition > 280) {
+      isCardActive = true;
+    }
+  }
+
+  function addScrollEvent() {
+    window.addEventListener('scroll', onScroll, { passive: true  });
+  }
+
+  onMount(() => {
+    // Registers scroll event
+    addScrollEvent();
+  });
 
 </script>
 
@@ -79,6 +99,63 @@
   <h2  transition:custom={{ delay: 2000}} >Custom transition</h2>
   {/if} -->
 
+  <div class="card">
+    <h3>Card</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
+  {#if isCardActive}
+    <div transition:fly class="card">
+      <h3>Card 2</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+    </div>
+  {/if}
+
+  <div class="card">
+    <h3>Card</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
+  <div class:hidden={!isCardActive} transition:fly class="card">
+    <h3>Card 4</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
+  <div class="card">
+    <h3>Card</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
+  <div class="card">
+    <h3>Card</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
+  <div class="card">
+    <h3>Card</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
+  <div class="card">
+    <h3>Card</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
+  <div class="card">
+    <h3>Card</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
+  <div class="card">
+    <h3>Card</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
+  <div class="card">
+    <h3>Card</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
+  </div>
+
 </main>
 
 <Toast />
@@ -93,10 +170,14 @@
 
 <style>
 
-  /* .hidden {
+  .hidden {
     opacity: 0;
     transition: 0.3s ease opacity;
-  } */
+  }
+
+  .card {
+    transition: 0.3s ease opacity;
+  }
 
 	main {
 		text-align: center;
