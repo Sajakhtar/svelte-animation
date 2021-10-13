@@ -25,6 +25,7 @@
   let isNavOpen = false;
   let isModalOpen = false;
   let isCardActive = false;
+  let y;
 
   function toggleNav() {
     isNavOpen = !isNavOpen;
@@ -41,25 +42,33 @@
     isModalOpen = !isModalOpen
   }
 
-  function onScroll() {
-    console.log(window.pageYOffset);
-    const scrollPosition = window.pageYOffset;
+  // function onScroll() {
+  //   console.log(window.pageYOffset);
+  //   const scrollPosition = window.pageYOffset;
 
-    if(scrollPosition > 280) {
-      isCardActive = true;
-    }
+  //   if(scrollPosition > 280) {
+  //     isCardActive = true;
+  //   }
+  // }
+
+  // function addScrollEvent() {
+  //   window.addEventListener('scroll', onScroll, { passive: true  });
+  // }
+
+  // onMount(() => {
+  //   // Registers scroll event
+  //   addScrollEvent();
+  // });
+
+  // svelte reactive statement for scroll
+  $: if(y > 280) {
+    isCardActive = true;
   }
-
-  function addScrollEvent() {
-    window.addEventListener('scroll', onScroll, { passive: true  });
-  }
-
-  onMount(() => {
-    // Registers scroll event
-    addScrollEvent();
-  });
 
 </script>
+
+<svelte:window bind:scrollY={y} />
+
 
 {#if isNavOpen}
   <Nav {toggleNav} />
