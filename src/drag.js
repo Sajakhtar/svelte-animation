@@ -1,3 +1,4 @@
+import { custom_event } from 'svelte/internal';
 import { spring } from 'svelte/motion';
 
 export function drag(node, params) {
@@ -58,6 +59,16 @@ export function drag(node, params) {
 
 
   function handleMouseUp(event) {
+    // fire up event with coords
+    node.dispatchEvent(
+      new CustomEvent('dragStop', {
+        detail: {
+          x,
+          y,
+        }
+      })
+    );
+
     // Reset values
     x = 0;
     y = 0;
