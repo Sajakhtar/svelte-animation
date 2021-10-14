@@ -8,6 +8,7 @@
   import Toast from './Toast.svelte';
   import Modal from './Modal.svelte';
   import Box from './Box.svelte';
+  import Cross from './Cross.svelte';
 
 
   // Svelte built in animations
@@ -46,7 +47,7 @@
   //   console.log(window.pageYOffset);
   //   const scrollPosition = window.pageYOffset;
 
-  //   if(scrollPosition > 280) {
+  //   if(scrollPosition > 180) {
   //     isCardActive = true;
   //   }
   // }
@@ -61,7 +62,7 @@
   // });
 
   // svelte reactive statement for scroll
-  $: if(y > 280) {
+  $: if(y > 180) {
     isCardActive = true;
   }
 
@@ -108,62 +109,39 @@
   <h2  transition:custom={{ delay: 2000}} >Custom transition</h2>
   {/if} -->
 
-  <div class="card">
-    <h3>Card</h3>
+  <!-- <div class="card">
+    <h3>Card 1</h3>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
   </div>
 
   {#if isCardActive}
     <div transition:fly class="card">
-      <h3>Card 2</h3>
+      <h3>Card 2 Fly Mount</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
     </div>
   {/if}
 
   <div class="card">
-    <h3>Card</h3>
+    <h3>Card 3</h3>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
   </div>
 
   <div class:hidden={!isCardActive} transition:fly class="card">
-    <h3>Card 4</h3>
+    <h3>Card 4 Fly Class directive</h3>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
   </div>
 
   <div class="card">
-    <h3>Card</h3>
+    <h3>Card 5</h3>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
   </div>
 
   <div class="card">
-    <h3>Card</h3>
+    <h3>Card 6</h3>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
-  </div>
+  </div> -->
 
-  <div class="card">
-    <h3>Card</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
-  </div>
-
-  <div class="card">
-    <h3>Card</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
-  </div>
-
-  <div class="card">
-    <h3>Card</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
-  </div>
-
-  <div class="card">
-    <h3>Card</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
-  </div>
-
-  <div class="card">
-    <h3>Card</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</p>
-  </div>
+  <Cross />
 
 </main>
 
