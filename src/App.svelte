@@ -157,14 +157,14 @@
 
 <style>
 
-  .hidden {
+  /* .hidden {
     opacity: 0;
     transition: 0.3s ease opacity;
   }
 
   .card {
     transition: 0.3s ease opacity;
-  }
+  } */
 
 	main {
 		text-align: center;
