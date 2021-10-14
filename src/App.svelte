@@ -27,6 +27,7 @@
   let isModalOpen = false;
   let isCardActive = false;
   let y;
+  let cubes = [...Array(20).keys()];
 
   function toggleNav() {
     isNavOpen = !isNavOpen;
@@ -143,6 +144,12 @@
 
   <Cross />
 
+  <div class="grid">
+    {#each cubes as cube, i}
+      <div transition:fade={{duration: 1000, delay: i * 100}} class="box"></div>
+    {/each}
+  </div>
+
 </main>
 
 <Toast />
@@ -165,6 +172,18 @@
   .card {
     transition: 0.3s ease opacity;
   } */
+
+  .box {
+    background: var(--primary);
+    box-shadow: var(--level-2);
+    height: 100px;
+    width: 100px;
+  }
+
+  .grid {
+    --gridCols: 5;
+    grid-gap: 20px;
+  }
 
 	main {
 		text-align: center;
