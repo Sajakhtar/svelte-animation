@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { fade, blur, slide, fly } from 'svelte/transition';
+  import { bounceOut } from 'svelte/easing';
   import { custom } from './custom';
   import { alert } from './alert';
 
@@ -27,7 +28,7 @@
   let isModalOpen = false;
   let isCardActive = false;
   let y;
-  let cubes = [...Array(20).keys()];
+  let cubes = [...Array(10).keys()];
 
   function toggleNav() {
     isNavOpen = !isNavOpen;
@@ -146,7 +147,7 @@
 
   <div class="grid">
     {#each cubes as cube, i}
-      <div transition:fade={{duration: 1000, delay: i * 100}} class="box"></div>
+      <div transition:fly={{ y: 100, duration: 1000, delay: i * 100, easing: bounceOut}} class="box"></div>
     {/each}
   </div>
 
